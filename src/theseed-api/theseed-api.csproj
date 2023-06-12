@@ -1,5 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>theseed_api</RootNamespace>
@@ -9,8 +8,11 @@
     <Title>theseed-api</Title>
     <Authors>sugarmaple</Authors>
     <Copyright>MIT License</Copyright>
-    <PackageTags>wiki, the seed, namuwiki</PackageTags>
+    <PackageTags>wiki, the_seed, namuwiki, theseedwiki</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <IncludeSymbols>False</IncludeSymbols>
   </PropertyGroup>
-
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>
