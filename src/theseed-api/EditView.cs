@@ -1,6 +1,9 @@
 ﻿namespace Sugarmaple.TheSeed.Api;
 using System;
 
+/// <summary>
+/// 제공받은 편집 토큰과 클라이언트의 편집 기능을 관리하는 객체입니다.
+/// </summary>
 public class EditView
 {
     private readonly SeedJsonClient _client;
@@ -17,10 +20,21 @@ public class EditView
         _token = token;
     }
 
+    /// <summary>
+    /// 열람한 문서의 내용입니다.
+    /// </summary>
     public string Text { get; private set; }
+    /// <summary>
+    /// 해당 문서의 존재 여부입니다.
+    /// </summary>
     public bool Exist { get; private set; }
 
-    internal async Task ReviewAsync()
+    /// <summary>
+    /// 기존 문서를 재열람합니다. text와 token이 갱신됩니다.
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="InvalidApiTokenException"></exception>
+    internal async Task GetReviewAsync()
     {
         (string text, bool exists, string token, string status) = await _client.GetEditAsync(_document);
         if (status == "문서 이름이 올바르지 않습니다.")
@@ -36,7 +50,8 @@ public class EditView
     /// </summary>
     /// <param name="text"></param>
     /// <param name="log"></param>
-    /// <returns>편집된 판 번호을 반환합니다.</returns>
+    /// <returns>편집 정보를 반환합니다.</returns>
+    /// <exception cref="ArgumentNullException">매개변수에 null값이 제공될 경우.</exception>
     public async Task<EditResult> PostEditAsync(string text, string log)
     {
         ArgumentNullException.ThrowIfNull(text);

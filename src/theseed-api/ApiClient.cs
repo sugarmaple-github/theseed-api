@@ -11,6 +11,11 @@ public class SeedApiClient
         _client.UpdateAuthHeader($"Bearer abc");
     }
 
+    /// <summary>
+    /// Client 객체를 생성합니다.
+    /// </summary>
+    /// <param name="wikiUri">접근하고자 하는 위키의 Uri를 작성합니다.</param>
+    /// <param name="apiToken">Api Token을 작성합니다.</param>
     public SeedApiClient(string wikiUri, string apiToken) : this(wikiUri)
     {
         UpdateApiToken(apiToken);
@@ -85,7 +90,10 @@ public class SeedApiClient
     internal Task<BacklinkResult> GetBacklinkUntilAsync(string document, SeedNamespace @namespace, string until = "", BacklinkFlags flags = BacklinkFlags.All) =>
         GetBacklinkUntilAsync(document, @namespace.Name, until, flags);
 
-
+    /// <summary>
+    /// API Token을 갱신합니다.
+    /// </summary>
+    /// <param name="apiToken">갱신할 API 토큰.</param>
     public void UpdateApiToken(string apiToken)
     {
         foreach (var c in apiToken)
