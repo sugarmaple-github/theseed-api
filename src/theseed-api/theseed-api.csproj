@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>theseed_api</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>Sugarmaple</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -11,6 +12,7 @@
     <PackageTags>wiki, the_seed, namuwiki, theseedwiki</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <IncludeSymbols>False</IncludeSymbols>
+    <RepositoryUrl>https://github.com/sugarmaple-github/theseed-api</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
