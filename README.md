@@ -28,7 +28,11 @@ public async Task<int> DoEdit()
 - 센카와, 리버티 스킨 크롤러를 위한 새 프로젝트 (New Projects for Senkawa and Liberty wiki skin crawler)
 
 ## Upcoming Features
-- 1.0.1: XML 주석 패키지에 포함. (contain Xml comments on packages.)
+- 1.0.2: 한영 XML 주석 완성. (complete Xml comments on packages for both Korean and English.)
+
+## Update Log
+- 1.0.1: Solved the problem that some members of 'BacklinkResult' class had wrong protection levels. 
+- 1.0.0: Released.
 
 ## Supported Platforms
 
