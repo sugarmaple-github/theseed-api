@@ -30,7 +30,6 @@ internal class SeedJsonClient
 }
 
 internal record struct EditParameter(string Text, string Log, string Token);
-public record struct BacklinkItem(string Document, BacklinkFlags Flag);
 
 internal record struct BacklinkResponse(
     NamespaceCountPair[] Namespaces,
@@ -39,7 +38,17 @@ internal record struct BacklinkResponse(
     string Until,
     string? Status);
 
+/// <summary>
+/// 이름공간과 그 수입니다.
+/// </summary>
+/// <param name="Namespace"></param>
+/// <param name="Count"></param>
 public record struct NamespaceCountPair(string Namespace, int Count);
+/// <summary>
+/// 역링크 검색 결과로 반환된 단일 역링크 항목입니다.
+/// </summary>
+/// <param name="Document"></param>
+/// <param name="Flags"></param>
 public record struct BacklinkPair(string Document, string Flags);
 internal record struct EditResponse(string Status, int Rev);
 internal record struct ViewResponse(string Text, bool Exists, string Token, string Status);

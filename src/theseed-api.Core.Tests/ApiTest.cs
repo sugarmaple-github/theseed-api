@@ -1,4 +1,6 @@
 namespace Sugarmaple.Core.Tests;
+
+using Sugarmaple.TheSeed.Api;
 using System.Diagnostics;
 
 [TestClass]

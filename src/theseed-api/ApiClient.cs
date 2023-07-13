@@ -52,7 +52,7 @@ public class SeedApiClient
     }
 
     /// <summary>
-    /// <paramref name="document"/>의 역링크 목록을 확인하고 이름 <paramref name="namespace" />
+    /// <paramref name="document"/>의 역링크 중에서 <paramref name="namespace" /> 이름공간에 있는 것을 반환합니다.
     /// </summary>
     /// <param name="document">역링크 목록을 확인할 문서명입니다.</param>
     /// <param name="namespace">역링크 목록을 확인할 이름 공간입니다. 만약 해당 이름 공간의 역링크가 없을 경우, 문서 이름공간의 역링크를 출력합니다.</param>
@@ -76,6 +76,14 @@ public class SeedApiClient
     internal Task<BacklinkResult> GetBacklinkFromAsync(string document, SeedNamespace @namespace, string @from = "", BacklinkFlags flags = BacklinkFlags.All) =>
         GetBacklinkFromAsync(document, @namespace.Name, from, flags);
 
+    /// <summary>
+    /// <paramref name="document"/>의 역링크 중에서 <paramref name="namespace" /> 이름공간에 있는 것을 반환합니다.
+    /// </summary>
+    /// <param name="document"></param>
+    /// <param name="namespace"></param>
+    /// <param name="until"></param>
+    /// <param name="flags"></param>
+    /// <returns></returns>
     public async Task<BacklinkResult> GetBacklinkUntilAsync(string document, string @namespace, string until = "", BacklinkFlags flags = BacklinkFlags.All)
     {
         ArgumentNullException.ThrowIfNull(document);
@@ -133,12 +141,30 @@ public class SeedApiClient
     }
 }
 
+/// <summary>
+/// 역링크 검색 옵션을 지정합니다.
+/// </summary>
 [Flags]
 public enum BacklinkFlags : byte
 {
+    /// <summary>
+    /// 모든 결과를 봅니다.
+    /// </summary>
     All = 0,
+    /// <summary>
+    /// 링크된 역링크만 검색합니다.
+    /// </summary>
     Link = 1,
+    /// <summary>
+    /// 파일로서 참조하는 역링크만 검색합니다.
+    /// </summary>
     File = 2,
+    /// <summary>
+    /// include된 역링크만 검색합니다.
+    /// </summary>
     Include = 4,
+    /// <summary>
+    /// 리다이렉트하는 역링크만 검색합니다.
+    /// </summary>
     Redirect = 8,
 }

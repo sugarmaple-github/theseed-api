@@ -77,6 +77,9 @@ public class BacklinkResult
     }
 }
 
+/// <summary>
+/// 역링크와 참조 방식 짝의 리스트입니다.
+/// </summary>
 public class BacklinkPairCollection : IReadOnlyList<BacklinkPair>
 {
     private BacklinkPair[] _backlinkPairs;
@@ -86,8 +89,16 @@ public class BacklinkPairCollection : IReadOnlyList<BacklinkPair>
         _backlinkPairs = backlinkPairs;
     }
 
+    /// <summary>
+    /// 정수 인덱스로 역링크에 접근합니다.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
     public BacklinkPair this[int index] => ((IReadOnlyList<BacklinkPair>)_backlinkPairs)[index];
 
+    /// <summary>
+    /// 
+    /// </summary>
     public int Count => ((IReadOnlyCollection<BacklinkPair>)_backlinkPairs).Count;
 
     IEnumerator IEnumerable.GetEnumerator()

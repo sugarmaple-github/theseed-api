@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <Description>theseed-api is a library that provides classes and methods for using API for The Seed wiki engine.</Description>
+    <Product>theseed-api</Product>
+    <Version>1.0.1</Version>
+    <LangVersion>latest</LangVersion>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+</Project>
