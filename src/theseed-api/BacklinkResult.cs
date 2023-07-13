@@ -11,7 +11,7 @@ public class BacklinkResult
     private NamespaceCountPairCollection? _namespaces;
     public NamespaceCountPairCollection Namespaces => _namespaces ??= new(_namespaceCountPairs);
 
-    public BacklinkPairCollection? _backlinks;
+    private BacklinkPairCollection? _backlinks;
     public BacklinkPairCollection Backlinks => _backlinks ??= new(_backlinkPairs);
 
     private string? _namespace;
@@ -86,16 +86,16 @@ public class BacklinkPairCollection : IReadOnlyList<BacklinkPair>
         _backlinkPairs = backlinkPairs;
     }
 
-    BacklinkPair IReadOnlyList<BacklinkPair>.this[int index] => ((IReadOnlyList<BacklinkPair>)_backlinkPairs)[index];
+    public BacklinkPair this[int index] => ((IReadOnlyList<BacklinkPair>)_backlinkPairs)[index];
 
     public int Count => ((IReadOnlyCollection<BacklinkPair>)_backlinkPairs).Count;
 
-    public IEnumerator GetEnumerator()
+    IEnumerator IEnumerable.GetEnumerator()
     {
         return _backlinkPairs.GetEnumerator();
     }
 
-    IEnumerator<BacklinkPair> IEnumerable<BacklinkPair>.GetEnumerator()
+    public IEnumerator<BacklinkPair> GetEnumerator()
     {
         return ((IEnumerable<BacklinkPair>)_backlinkPairs).GetEnumerator();
     }

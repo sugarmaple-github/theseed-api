@@ -40,6 +40,6 @@ internal record struct BacklinkResponse(
     string? Status);
 
 public record struct NamespaceCountPair(string Namespace, int Count);
-internal record struct BacklinkPair(string Document, string Flags);
+public record struct BacklinkPair(string Document, string Flags);
 internal record struct EditResponse(string Status, int Rev);
 internal record struct ViewResponse(string Text, bool Exists, string Token, string Status);
